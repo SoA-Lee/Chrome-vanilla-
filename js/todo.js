@@ -13,7 +13,9 @@ function saveToDos(){
 function deleteToDo(event) { // 어떤 버튼을 눌렀는가
   const li = event.target.parentElement;
   li.remove();
-}
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
+  }
 
 function paintToDo(newTodo) {
   const li = document.createElement("li");
